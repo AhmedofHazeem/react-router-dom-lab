@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 import axios from "axios"
 
 
-const API_URL = import.meta.env.API_URL
+const VITE_API_URL = import.meta.env.VITE_API_URL
 
 function MailboxList(){
     const [mailboxes, setMailboxes] = useState([])
@@ -12,7 +12,7 @@ function MailboxList(){
     useEffect(() => {
         async function fetchMailboxes() {
             try {
-                const response = await axios.get(`${API_URL}/mailboxes`)
+                const response = await axios.get(`${VITE_API_URL}/mailboxes`)
                 setMailboxes(response.data)
             } catch (err){
                 console.log(err)
